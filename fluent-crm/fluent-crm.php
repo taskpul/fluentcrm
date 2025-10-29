@@ -35,6 +35,10 @@ if (!defined('FLUENTCRM_UPLOAD_DIR')) {
 
 require __DIR__ . '/vendor/autoload.php';
 
+if (file_exists(__DIR__ . '/pro/fluentcampaign_boot.php')) {
+    require __DIR__ . '/pro/fluentcampaign_boot.php';
+}
+
 call_user_func(function ($bootstrap) {
     $bootstrap(__FILE__);
 }, require(__DIR__ . '/boot/app.php'));
