@@ -25,5 +25,6 @@ class DeactivationHandler
         wp_clear_scheduled_hook('fluentcrm_scheduled_weekly_tasks');
         wp_clear_scheduled_hook('fluentcrm_scheduled_five_minute_tasks');
         wp_clear_scheduled_hook('fluentcrm_scheduled_daily_tasks');
+        wp_clear_scheduled_hook('fluentcrm_check_daily_birthday');
     }
 }

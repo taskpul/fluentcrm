@@ -10,14 +10,14 @@ class LicenseManager
 
     public function __construct()
     {
-        $this->pluginBaseName = 'fluentcampaign-pro/fluentcampaign-pro.php';;
+        $this->pluginBaseName = 'fluent-crm/fluent-crm.php';
 
         $urlBase = apply_filters('fluent_crm/menu_url_base', admin_url('admin.php?page=fluentcrm-admin#/'));
 
         $this->settings = [
             'item_id'        => 341197,
             'license_server' => 'https://api3.wpmanageninja.com/plugin',
-            'plugin_file'    => FLUENTCAMPAIGN_DIR_FILE,
+            'plugin_file'    => FLUENTCRM_PLUGIN_PATH . 'fluent-crm.php',
             'store_url'      => 'https://wpmanageninja.com',
             'version'        => FLUENTCAMPAIGN_PLUGIN_VERSION,
             'purchase_url'   => 'https://fluentcrm.com/',

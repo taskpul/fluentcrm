@@ -10,12 +10,19 @@ return function ($file) {
 
     register_activation_hook($file, function ($network_wide) use ($file) {
         (new ActivationHandler)->handle($network_wide);
+
+        if (class_exists('\\FluentCampaign\\App\\Migration\\Migrate')) {
+            \FluentCampaign\App\Migration\Migrate::run($network_wide);
+        }
     });
 
     add_action('wp_insert_site', function ($new_site) use ($file) {
         if (is_plugin_active_for_network('fluent-crm/fluent-crm.php')) {
             switch_to_blog($new_site->blog_id);
             (new ActivationHandler)->handle(false);
+            if (class_exists('\\FluentCampaign\\App\\Migration\\Migrate')) {
+                \FluentCampaign\App\Migration\Migrate::run(false);
+            }
             restore_current_blog();
         }
     });
