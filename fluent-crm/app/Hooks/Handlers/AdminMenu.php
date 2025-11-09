@@ -57,9 +57,9 @@ class AdminMenu
             $isAdmin = true;
         }
 
-        $title = __('FluentCRM', 'fluent-crm');
+        $title = __('Client Hub', 'fluent-crm');
         if (defined('FLUENTCAMPAIGN')) {
-            $title = __('FluentCRM Pro', 'fluent-crm');
+            $title = __('Client Hub Pro', 'fluent-crm');
         }
         add_menu_page(
             $title,
@@ -260,7 +260,8 @@ class AdminMenu
 
         $app['view']->render('admin.menu_page', [
             'menuItems' => $menuItems,
-            'logo'      => FLUENTCRM_PLUGIN_URL . 'assets/images/fluentcrm-logo.svg',
+            'logo'      => '',
+            'app_name'  => __('Client Hub', 'fluent-crm'),
             'base_url'  => $urlBase
         ]);
     }
@@ -274,7 +275,7 @@ class AdminMenu
                 $extraHtml = ' ' . sprintf(__('Server-Side Cron Job is not enabled %1sView Documentation%2s.', 'fluent-crm'), '<a style="font-weight: 500;" target="_blank" rel="noopener" href="https://fluentcrm.com/docs/fluentcrm-cron-job-basics-and-checklist/">', '</a>');
             }
 
-            return sprintf(wp_kses(__('Thank you for using <a href="%s">FluentCRM</a>.', 'fluent-crm'), array('a' => array('href' => array()))), esc_url($url)) . '<span title="based on your WP timezone settings" style="margin-left: 10px;" data-timestamp="' . current_time('timestamp') . '" id="fc_server_timestamp"></span>. ' . $extraHtml;
+            return sprintf(wp_kses(__('Thank you for using <a href="%s">Client Hub</a>.', 'fluent-crm'), array('a' => array('href' => array()))), esc_url($url)) . '<span title="based on your WP timezone settings" style="margin-left: 10px;" data-timestamp="' . current_time('timestamp') . '" id="fc_server_timestamp"></span>. ' . $extraHtml;
         });
 
         add_filter('update_footer', function ($text) {
@@ -1088,7 +1089,7 @@ class AdminMenu
 
     private function getMenuIcon()
     {
-        return 'data:image/svg+xml;base64,' . base64_encode('<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="100%" height="100%" viewBox="0 0 300 235" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g><path d="M300,0c0,0 -211.047,56.55 -279.113,74.788c-12.32,3.301 -20.887,14.466 -20.887,27.221l0,38.719c0,0 169.388,-45.387 253.602,-67.952c27.368,-7.333 46.398,-32.134 46.398,-60.467c0,-7.221 0,-12.309 0,-12.309Z"/><path d="M184.856,124.521c0,-0 -115.6,30.975 -163.969,43.935c-12.32,3.302 -20.887,14.466 -20.887,27.221l0,38.719c0,0 83.701,-22.427 138.458,-37.099c27.368,-7.334 46.398,-32.134 46.398,-60.467c0,-7.221 0,-12.309 0,-12.309Z"/></g></svg>');
+        return 'dashicons-groups';
     }
 
     private function getVerifiedSenders()
