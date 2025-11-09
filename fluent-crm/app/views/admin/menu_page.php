@@ -2,6 +2,7 @@
 /**
  * @var $base_url string
  * @var $logo string
+ * @var $app_name string|null
  * @var $menuItems array
  */
 ?>
@@ -10,7 +11,12 @@
     <div class="fluentcrm_main_menu_items">
         <div class="fluentcrm_menu_logo_holder">
             <a href="<?php echo esc_url($base_url); ?>">
-                <img style="height: 36px;" src="<?php echo esc_url($logo); ?>" />
+                <?php if (!empty($logo)): ?>
+                    <img style="height: 36px;" src="<?php echo esc_url($logo); ?>" />
+                <?php endif; ?>
+                <span class="fluentcrm_menu_logo_text" style="display: inline-block; margin-left: 10px; font-weight: 600; font-size: 18px;">
+                    <?php echo esc_html($app_name ?? __('Client Hub', 'fluent-crm')); ?>
+                </span>
                 <?php if(defined('FLUENTCAMPAIGN_PLUGIN_PATH')): ?>
                     <span><?php esc_html_e('Pro', 'fluent-crm'); ?></span>
                 <?php endif; ?>
