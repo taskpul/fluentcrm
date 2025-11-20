@@ -141,6 +141,9 @@ class Updater
         }
 
         if (is_object($version_info) && isset($version_info->new_version)) {
+            if (empty($version_info->plugin)) {
+                $version_info->plugin = $this->name;
+            }
             if (version_compare($this->version, $version_info->new_version, '<')) {
                 $_transient_data->response[$this->name] = $version_info;
             }
